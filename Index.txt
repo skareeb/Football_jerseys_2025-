@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Jersey Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      alert(`${name} added to cart!`);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById('cart-items');
+      const total = document.getElementById('cart-total');
+      cartList.innerHTML = '';
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        totalPrice += item.price;
+        const li = document.createElement('li');
+        li.className = 'mb-2';
+        li.innerText = `${item.name} - PKR ${item.price}`;
+        cartList.appendChild(li);
+      });
+
+      total.innerText = `Total: PKR ${totalPrice}`;
+    }
+  </script>
+</head>
+<body class="bg-yellow-50 font-sans">
+  <!-- Header -->
+  <header class="bg-black text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Retro Jerseys</h1>
+    <nav>
+      <ul class="flex space-x-4">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#shop" class="hover:underline">Shop</a></li>
+        <li><a href="#cart" class="hover:underline">Cart</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="text-center py-10 bg-gradient-to-br from-yellow-100 to-yellow-300">
+    <h2 class="text-4xl font-bold mb-4">Classic Retro Football Jerseys</h2>
+    <p class="mb-6">Relive the golden moments of football with legendary jerseys</p>
+    <a href="#shop" class="bg-black text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition">Shop Now</a>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Jersey Card -->
+    <div class="bg-white p-4 rounded-xl shadow-lg">
+      <img src="https://via.placeholder.com/300x200" alt="Jersey" class="rounded-md mb-4">
+      <h3 class="text-xl font-bold">Brazil 2002 - Ronaldo</h3>
+      <p class="text-gray-700">One of the most iconic World Cup jerseys.</p>
+      <p class="mt-2 font-semibold">PKR 3000</p>
+      <button onclick="addToCart('Brazil 2002 - Ronaldo', 3000)" class="mt-4 bg-black text-white px-4 py-2 rounded hover:bg-yellow-600">Add to Cart</button>
+    </div>
+    <!-- Repeat more jersey cards as needed -->
+  </section>
+
+  <!-- Cart Section -->
+  <section id="cart" class="p-8">
+    <h3 class="text-2xl font-bold mb-4">Your Cart</h3>
+    <ul id="cart-items" class="mb-4"></ul>
+    <p id="cart-total" class="font-semibold">Total: PKR 0</p>
+    <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800">Proceed to Checkout</button>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-black text-white p-8 text-center">
+    <h3 class="text-2xl font-bold mb-2">Contact Us</h3>
+    <p>WhatsApp: <a href="https://wa.me/923001234567" class="underline">+92 300 1234567</a></p>
+    <p>Instagram: <a href="https://instagram.com/retrojerseys" class="underline">@retrojerseys</a></p>
+    <p>Email: retrojerseys@example.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-yellow-300 text-center p-4">
+    &copy; 2025 Retro Jersey Store. All rights reserved.
+  </footer>
+</body>
+</html>
+
+Cart aur checkout system ab code mein add kar diya gaya hai. Ab jab koi “Add to Cart” button click karega, wo item cart mein chala jaayega, aur total price bhi update hoga.
+
+Agle steps mein:
+
+Checkout form add kar sakta hoon (Customer name, address, payment method)
+
+Ya tum chaho to main is website ko host karne mein bhi madad kar sakta hoon
+
+Tumhare liye kya next step ho?
